@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:redstone_lamp"
+    },
+    "X": {
+      "item": "minecraft:brown_dye"
+    }
+  },
+  "pattern": [
+    " X ",
+    "X#X",
+    " X "
+  ],
+  "result": {
+    "count": 1,
+    "id": "colorful_redstone_lamps:brown_redstone_lamp"
+  }
+}
