@@ -3,6 +3,9 @@ package de.pasuki.colorful_redstone_lamps.block;
 import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLamps;
 import de.pasuki.colorful_redstone_lamps.item.ModItems;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -44,6 +47,7 @@ public class ModBlocks {
             "white_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"white_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -55,6 +59,7 @@ public class ModBlocks {
             "light_gray_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"light_gray_redstone_lamp")))
                             .mapColor(MapColor.COLOR_LIGHT_GRAY) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -66,6 +71,7 @@ public class ModBlocks {
             "gray_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"gray_redstone_lamp")))
                             .mapColor(MapColor.COLOR_GRAY) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -77,6 +83,7 @@ public class ModBlocks {
             "black_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"black_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -88,6 +95,7 @@ public class ModBlocks {
             "brown_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"brown_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -99,6 +107,7 @@ public class ModBlocks {
             "red_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"red_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -110,6 +119,7 @@ public class ModBlocks {
             "orange_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"orange_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -121,6 +131,7 @@ public class ModBlocks {
             "yellow_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"yellow_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -132,6 +143,7 @@ public class ModBlocks {
             "lime_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"lime_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -143,6 +155,7 @@ public class ModBlocks {
             "green_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"green_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -154,6 +167,7 @@ public class ModBlocks {
             "cyan_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"cyan_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -165,6 +179,7 @@ public class ModBlocks {
             "light_blue_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"light_blue_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -176,6 +191,7 @@ public class ModBlocks {
             "blue_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"blue_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -187,6 +203,7 @@ public class ModBlocks {
             "purple_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"purple_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -198,6 +215,7 @@ public class ModBlocks {
             "magenta_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"magenta_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -209,6 +227,7 @@ public class ModBlocks {
             "pink_redstone_lamp",
             () -> new RedstoneLampBlock(
                     BlockBehaviour.Properties.of()
+                            .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID,"pink_redstone_lamp")))
                             .mapColor(MapColor.QUARTZ) // optional
                             .strength(0.3F)
                             .sound(SoundType.GLASS)
@@ -224,7 +243,8 @@ public class ModBlocks {
     }
 
     private static <T  extends Block> void registerBlockItem(String name, DeferredBlock<T> block){
-        ModItems.ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties()));
+        ModItems.ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties()
+                .setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID, name)))));
     }
 
     public static void register(IEventBus eventBus){

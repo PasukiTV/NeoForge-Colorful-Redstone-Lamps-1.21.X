@@ -186,3 +186,8 @@ idea {
         downloadJavadoc = true
     }
 }
+
+tasks.withType(Jar).configureEach {
+    archiveBaseName.set(mod_id)
+    archiveVersion.set("${mod_version}+mc${minecraft_version}-neoforge")
+}

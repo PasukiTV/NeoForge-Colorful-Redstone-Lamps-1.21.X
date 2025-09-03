@@ -2,12 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "key": {
-    "#": {
-      "item": "minecraft:redstone_lamp"
-    },
-    "X": {
-      "item": "minecraft:blue_dye"
-    }
+    "#": "minecraft:redstone_lamp",
+    "X": "minecraft:blue_dye"
+
   },
   "pattern": [
     " X ",

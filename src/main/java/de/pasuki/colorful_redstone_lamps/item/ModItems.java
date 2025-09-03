@@ -1,10 +1,7 @@
 package de.pasuki.colorful_redstone_lamps.item;
 
 import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLamps;
-import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLampsClient;
-import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
-import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModItems {
