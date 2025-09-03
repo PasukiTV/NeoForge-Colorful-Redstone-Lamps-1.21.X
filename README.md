@@ -1,25 +1,17 @@
+Colorful Redstone Lamps expands Minecraft with a full range of vibrant, craftable Redstone Lamps.
 
-Installation information
-=======
+Instead of being limited to the default orange glow, you can now create Redstone Lamps in every dye color available in the game. Simply combine a regular Redstone Lamp with the corresponding vanilla dye to craft its colorful variant.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+Each lamp behaves exactly like the vanilla Redstone Lamp – it powers on when supplied with Redstone – but now you can match your builds with custom lighting that blends seamlessly with your chosen palette.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+✨ Features:
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+Adds Redstone Lamps in all Minecraft dye colors.
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+Crafting recipes use the standard lamp + dye combination.
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+Perfect for builders who want to add personality and atmosphere to their worlds.
+
+Works just like the original lamp: powered by Redstone, with matching on/off states.
+
+Whether you’re decorating modern cities, cozy houses, or fantasy builds, Colorful Redstone Lamps gives you the tools to make your creations shine in style.
