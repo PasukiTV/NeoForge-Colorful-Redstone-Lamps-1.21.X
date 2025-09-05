@@ -1,0 +1,4 @@
+// 1.21.1	2025-09-05T19:31:00.2455825	Tags for minecraft:block mod id colorful_redstone_lamps
+3c0b4c7b51f61f761173ded0f11c45694fb36483 data/colorful_redstone_lamps/tags/block/any_lamp.json
+e3f43c481e2f8225779b7b1e532e4a0d32f4a6b9 data/colorful_redstone_lamps/tags/block/inverted_redstone_lamps.json
+acc559fb51302987489e1fd5876b64ac63da2b19 data/colorful_redstone_lamps/tags/block/redstone_lamps.json

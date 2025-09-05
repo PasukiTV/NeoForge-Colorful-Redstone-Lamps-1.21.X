@@ -4,7 +4,6 @@ import com.mojang.logging.LogUtils;
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import de.pasuki.colorful_redstone_lamps.item.ModCreativeModeTab;
 import de.pasuki.colorful_redstone_lamps.item.ModItems;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -12,7 +11,6 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import org.slf4j.Logger;
@@ -42,7 +40,7 @@ public class ColorfulRedstoneLamps {
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
-
+        modEventBus.addListener(de.pasuki.colorful_redstone_lamps.data.ModDataGenerators::gatherData);
         // Register our mod's ModConfigSpec so that FML can create and load the config file for us
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
