@@ -1,7 +1,7 @@
 {
   "variants": {
     "lit=false": {
-      "model": "colorful_redstone_lamps:block/cyan_redstone_lamp_off"
+      "model": "colorful_redstone_lamps:block/cyan_redstone_lamp"
     },
     "lit=true": {
       "model": "colorful_redstone_lamps:block/cyan_redstone_lamp_on"

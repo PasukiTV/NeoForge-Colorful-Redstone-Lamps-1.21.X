@@ -5,16 +5,17 @@ import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
+    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, ColorfulRedstoneLamps.MOD_ID);
+    }
 
     public static final TagKey<Block> ANY_LAMP =
             TagKey.create(net.minecraft.core.registries.Registries.BLOCK,
@@ -28,11 +29,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             TagKey.create(net.minecraft.core.registries.Registries.BLOCK,
                     ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID, "inverted_redstone_lamps"));
 
-    public ModBlockTagsProvider(PackOutput output,
-                                CompletableFuture<HolderLookup.Provider> lookupProvider,
-                                ExistingFileHelper efh) {
-        super(output, lookupProvider, ColorfulRedstoneLamps.MOD_ID, efh);
-    }
+
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
