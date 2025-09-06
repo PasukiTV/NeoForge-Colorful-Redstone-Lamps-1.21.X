@@ -75,7 +75,7 @@ public final class ModModelProvider extends ModelProvider {
             // Item der INVERTED: explizit das _on-BLOCKmodell (Würfel!) als ClientItem registrieren
             itemModels.itemModelOutput.register(
                     inverted.asItem(),
-                    new ClientItem(ItemModelUtils.plainModel(invOn), new ClientItem.Properties(false))
+                    new ClientItem(ItemModelUtils.plainModel(invOn), new ClientItem.Properties(false,false))
             );
         }
     }

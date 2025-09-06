@@ -1,20 +1,24 @@
 package de.pasuki.colorful_redstone_lamps.data;
 
+import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLamps;
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;          // <-- Mojang!
+
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
-
+    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, ColorfulRedstoneLamps.MOD_ID);
+    }
     public static final TagKey<Item> ANY_LAMP =
             TagKey.create(net.minecraft.core.registries.Registries.ITEM,
                     ResourceLocation.fromNamespaceAndPath("colorful_redstone_lamps", "any_lamp"));
@@ -25,12 +29,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             TagKey.create(net.minecraft.core.registries.Registries.ITEM,
                     ResourceLocation.fromNamespaceAndPath("colorful_redstone_lamps", "inverted_redstone_lamps"));
 
-    // Mojang-Konstruktor: (PackOutput, CompletableFuture<HolderLookup.Provider>, CompletableFuture<TagLookup<Block>>)
-    public ModItemTagsProvider(PackOutput output,
-                               CompletableFuture<HolderLookup.Provider> lookupProvider,
-                               CompletableFuture<TagsProvider.TagLookup<Block>> blockTagLookup) {
-        super(output, lookupProvider, blockTagLookup);
-    }
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {

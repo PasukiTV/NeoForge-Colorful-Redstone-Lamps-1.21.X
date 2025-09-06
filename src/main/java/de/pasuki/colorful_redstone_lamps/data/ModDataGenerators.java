@@ -45,6 +45,6 @@ public final class ModDataGenerators {
 
         // Item-Tags (benötigen blockTags.contentsGetter())
         generator.addProvider(true,
-                new ModItemTagsProvider(out, lookup, blockTags.contentsGetter()));
+                new ModItemTagsProvider(out, lookup));
     }
 }
