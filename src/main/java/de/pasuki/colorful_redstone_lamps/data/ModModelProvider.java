@@ -7,13 +7,11 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
-import net.minecraft.client.data.models.model.ModelLocationUtils;
+import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.data.models.model.TexturedModel;
-import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.renderer.item.ClientItem;
-import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -24,8 +22,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 import java.util.stream.Stream;
 
-public class ModModelProvider extends ModelProvider {
-
+public final class ModModelProvider extends ModelProvider {
     public ModModelProvider(PackOutput output) {
         super(output, ColorfulRedstoneLamps.MOD_ID);
     }
@@ -36,50 +33,50 @@ public class ModModelProvider extends ModelProvider {
             final Block normal   = ModBlocks.LAMPS.get(c).get();
             final Block inverted = ModBlocks.INVERTED_LAMPS.get(c).get();
 
-            final String base = c.getName() + "_redstone_lamp"; // ohne "_inverted"
-            final ResourceLocation TEX_OFF = modLoc("block/" + base);
-            final ResourceLocation TEX_ON  = modLoc("block/" + base + "_on");
+            final String base = c.getName() + "_redstone_lamp";
+            final ResourceLocation TEX_OFF = modLoc("block/" + base);       // …/block/<color>_redstone_lamp.png
+            final ResourceLocation TEX_ON  = modLoc("block/" + base + "_on");// …/block/<color>_redstone_lamp_on.png
 
-            /* ===== NORMAL (Block) ===== */
-            var normalOffModel = TexturedModel.CUBE.create(normal, blockModels.modelOutput); // block/<base>.png
-            var normalOnModel  = ModelTemplates.CUBE_ALL.create(
-                    ModelLocationUtils.getModelLocation(normal).withSuffix("_on"),
-                    TextureMapping.cube(TEX_ON),
-                    blockModels.modelOutput
-            );
+            /* ---------------- NORMAL ---------------- */
 
-            blockModels.blockStateOutput.accept(
-                    MultiVariantGenerator.multiVariant(normal)
-                            .with(BlockModelGenerators.createBooleanModelDispatch(
-                                    BlockStateProperties.LIT, normalOnModel, normalOffModel))
-            );
-            // KEIN explizites Item für normale Lampe -> Fallback (OFF) ist ok.
+            // OFF: vanilla mapping (nimmt block/<id>.png) – bei dir = <base>.png
+            var normalOff = TexturedModel.CUBE.create(normal, blockModels.modelOutput);
 
-
-            /* ===== INVERTED (Block + Item) ===== */
-            // Blockmodelle benutzen BEWUSST die normalen Texturen (kein "_inverted" in Pfaden!)
-            var invertedOffModel = ModelTemplates.CUBE_ALL.create(
-                    ModelLocationUtils.getModelLocation(inverted).withSuffix("_off"),
-                    TextureMapping.cube(TEX_OFF),
-                    blockModels.modelOutput
-            );
-            var invertedOnModel = ModelTemplates.CUBE_ALL.create(
-                    ModelLocationUtils.getModelLocation(inverted).withSuffix("_on"),
-                    TextureMapping.cube(TEX_ON),
-                    blockModels.modelOutput
-            );
+            // ON: eigenes Modell mit _on-Suffix und deiner _on-Textur
+            var normalOn = blockModels.createSuffixedVariant(
+                    normal, "_on", ModelTemplates.CUBE_ALL, b -> TextureMapping.cube(TEX_ON));
 
             blockModels.blockStateOutput.accept(
-                    MultiVariantGenerator.multiVariant(inverted)
+                    MultiVariantGenerator.dispatch(normal)
                             .with(BlockModelGenerators.createBooleanModelDispatch(
-                                    BlockStateProperties.LIT, invertedOnModel, invertedOffModel))
+                                    BlockStateProperties.LIT,
+                                    BlockModelGenerators.plainVariant(normalOn),
+                                    BlockModelGenerators.plainVariant(normalOff)))
+            );
+            // Item der normalen Lampe: Vanilla-Fallback (OFF) reicht.
+
+
+            /* ---------------- INVERTED ---------------- */
+
+            // Inverted nutzt BEWUSST die gleichen Texturpfade (kein “…_inverted” in den Pfaden!)
+            var invOff = blockModels.createSuffixedVariant(
+                    inverted, "_off", ModelTemplates.CUBE_ALL, b -> TextureMapping.cube(TEX_OFF));
+            var invOn = blockModels.createSuffixedVariant(
+                    inverted, "_on", ModelTemplates.CUBE_ALL, b -> TextureMapping.cube(TEX_ON));
+
+            blockModels.blockStateOutput.accept(
+                    MultiVariantGenerator.dispatch(inverted)
+                            .with(BlockModelGenerators.createBooleanModelDispatch(
+                                    BlockStateProperties.LIT,
+                                    BlockModelGenerators.plainVariant(invOn),
+                                    BlockModelGenerators.plainVariant(invOff)))
             );
 
-            // WICHTIG (1.21.4): Client-Item registrieren, das auf das _ON-Blockmodell zeigt (WÜRFEL, kein flaches Icon).
-            // -> Damit ignoriert Minecraft NICHT unser Item und zeigt im Inventar den Würfel mit ON-Textur.
-            ResourceLocation onBlockModel = modLoc("block/" + base + "_on"); // normales Blockmodell _on
-            ItemModel.Unbaked unbaked = ItemModelUtils.plainModel(onBlockModel);
-            itemModels.itemModelOutput.register(inverted.asItem(), new ClientItem(unbaked, new ClientItem.Properties(false)));
+            // Item der INVERTED: explizit das _on-BLOCKmodell (Würfel!) als ClientItem registrieren
+            itemModels.itemModelOutput.register(
+                    inverted.asItem(),
+                    new ClientItem(ItemModelUtils.plainModel(invOn), new ClientItem.Properties(false))
+            );
         }
     }
 

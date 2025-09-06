@@ -2,6 +2,6 @@
   "hand_animation_on_swap": false,
   "model": {
     "type": "minecraft:model",
-    "model": "colorful_redstone_lamps:block/gray_redstone_lamp_on"
+    "model": "colorful_redstone_lamps:block/gray_redstone_lamp_inverted_on"
   }
 }
