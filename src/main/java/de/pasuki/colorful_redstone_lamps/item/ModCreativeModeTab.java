@@ -5,6 +5,7 @@ import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -12,35 +13,29 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import java.util.function.Supplier;
 
 public class ModCreativeModeTab {
-    public static final DeferredRegister<CreativeModeTab> CREATE_MODE_TAB =
+    public static final DeferredRegister<CreativeModeTab> TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ColorfulRedstoneLamps.MOD_ID);
 
-    public static final Supplier<CreativeModeTab> COLORFUL_REDSTONE_LAMPS = CREATE_MODE_TAB.register("colorful_redstone_lamps_tab",
-    ()-> CreativeModeTab.builder()
-            .icon(()-> new ItemStack(ModBlocks.WHITE_REDSTONE_LAMP.get()))
-            .title(Component.translatable("creativetab.colorful_redstone_lamps"))
-            .displayItems((itemDisplayParameters, output) ->{
-                output.accept(ModBlocks.WHITE_REDSTONE_LAMP);
-                output.accept(ModBlocks.LIGHT_GRAY_REDSTONE_LAMP);
-                output.accept(ModBlocks.GRAY_REDSTONE_LAMP);
-                output.accept(ModBlocks.BLACK_REDSTONE_LAMP);
-                output.accept(ModBlocks.BROWN_REDSTONE_LAMP);
-                output.accept(ModBlocks.RED_REDSTONE_LAMP);
-                output.accept(ModBlocks.ORANGE_REDSTONE_LAMP);
-                output.accept(ModBlocks.YELLOW_REDSTONE_LAMP);
-                output.accept(ModBlocks.LIME_REDSTONE_LAMP);
-                output.accept(ModBlocks.GREEN_REDSTONE_LAMP);
-                output.accept(ModBlocks.CYAN_REDSTONE_LAMP);
-                output.accept(ModBlocks.LIGHT_BLUE_REDSTONE_LAMP);
-                output.accept(ModBlocks.BLUE_REDSTONE_LAMP);
-                output.accept(ModBlocks.PURPLE_REDSTONE_LAMP);
-                output.accept(ModBlocks.MAGENTA_REDSTONE_LAMP);
-                output.accept(ModBlocks.PINK_REDSTONE_LAMP);
-            })
-            .build());
+    public static final Supplier<CreativeModeTab> MAIN = TABS.register("colorful_redstone_lamps",
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.colorful_redstone_lamps"))
+                    .icon(() -> new ItemStack(ModBlocks.LAMPS.get(DyeColor.RED).get()))
+                    .displayItems((params, output) -> {
+                        // zuerst normale Lampen
+                        for (DyeColor color : DyeColor.values()) {
+                            var sup = ModBlocks.LAMPS.get(color);
+                            if (sup != null) output.accept(sup.get());
+                        }
+                        // dann invertierte
+                        for (DyeColor color : DyeColor.values()) {
+                            var sup = ModBlocks.INVERTED_LAMPS.get(color);
+                            if (sup != null) output.accept(sup.get());
+                        }
+                    })
+                    .build());
 
-
-    public static void register(IEventBus eventBus){
-        CREATE_MODE_TAB.register(eventBus);
+    // <— diese Methode fehlt oft, wird aber in deiner Hauptklasse aufgerufen
+    public static void register(IEventBus modEventBus) {
+        TABS.register(modEventBus);
     }
 }
