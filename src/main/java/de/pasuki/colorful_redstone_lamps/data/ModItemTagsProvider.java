@@ -3,7 +3,7 @@ package de.pasuki.colorful_redstone_lamps.data;
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;          // <-- Mojang!
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -25,7 +25,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             TagKey.create(net.minecraft.core.registries.Registries.ITEM,
                     ResourceLocation.fromNamespaceAndPath("colorful_redstone_lamps", "inverted_redstone_lamps"));
 
-    // Mojang-Konstruktor: (PackOutput, CompletableFuture<HolderLookup.Provider>, CompletableFuture<TagLookup<Block>>)
+    // Uses Mojang ItemTagsProvider constructor with block-tag lookup wiring.
     public ModItemTagsProvider(PackOutput output,
                                CompletableFuture<HolderLookup.Provider> lookupProvider,
                                CompletableFuture<TagsProvider.TagLookup<Block>> blockTagLookup) {

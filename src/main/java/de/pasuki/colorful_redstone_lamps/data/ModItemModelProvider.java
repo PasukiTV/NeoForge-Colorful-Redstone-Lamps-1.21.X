@@ -2,7 +2,6 @@ package de.pasuki.colorful_redstone_lamps.data;
 
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -15,20 +14,19 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        for (net.minecraft.world.item.DyeColor c : net.minecraft.world.item.DyeColor.values()) {
+        for (DyeColor c : DyeColor.values()) {
             String base = c.getName() + "_redstone_lamp";
 
-            // Normale Items: parent = Blockmodell "_off" (Inventar zeigt AUS)
-            if (de.pasuki.colorful_redstone_lamps.block.ModBlocks.LAMPS.containsKey(c)) {
+            // Normal lamp items use the *_off block model in inventory.
+            if (ModBlocks.LAMPS.containsKey(c)) {
                 withExistingParent(base, modLoc("block/" + base + "_off"));
             }
 
-            // Invertierte Items: parent = Blockmodell "_on" (Inventar zeigt AN)
-            if (de.pasuki.colorful_redstone_lamps.block.ModBlocks.INVERTED_LAMPS.containsKey(c)) {
+            // Inverted lamp items use the *_on block model in inventory.
+            if (ModBlocks.INVERTED_LAMPS.containsKey(c)) {
                 withExistingParent(base + "_inverted", modLoc("block/" + base + "_on"));
             }
         }
     }
-
 
 }

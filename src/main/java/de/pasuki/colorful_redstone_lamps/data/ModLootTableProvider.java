@@ -11,7 +11,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModLootTableProvider extends LootTableProvider {
     public ModLootTableProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookup) {
-        // Keine bereits vorhandenen Loot-Tables ersetzen -> leeres Set
+        // Do not replace pre-existing loot tables (empty replacement set).
         super(output,
                 Set.of(),
                 List.of(new SubProviderEntry(ModBlockLoot::new, LootContextParamSets.BLOCK)),

@@ -6,19 +6,19 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 public final class ModDataGenerators {
     private ModDataGenerators() {}
 
-    // Wird über den Mod-EventBus als Listener registriert (keine Annotation nötig)
+    // Registered from the mod constructor via mod event bus (no annotation required).
     public static void gatherData(GatherDataEvent event) {
         var generator   = event.getGenerator();
         var packOutput  = generator.getPackOutput();
         var fileHelper  = event.getExistingFileHelper();
 
-        // Blockstates + Block-Modelle
+        // Blockstates and block models
         generator.addProvider(
                 event.includeClient(),
                 new ModBlockStateProvider(packOutput, ColorfulRedstoneLamps.MOD_ID, fileHelper)
         );
 
-        // Item-Modelle
+        // Item models
         generator.addProvider(
                 event.includeClient(),
                 new ModItemModelProvider(packOutput, ColorfulRedstoneLamps.MOD_ID, fileHelper)
@@ -38,7 +38,7 @@ public final class ModDataGenerators {
         var blockTags = new ModBlockTagsProvider(packOutput, event.getLookupProvider(), fileHelper);
         generator.addProvider(event.includeServer(), blockTags);
 
-// Mojang-ItemTagsProvider braucht den Block-Tag-Lookup:
+        // Mojang ItemTagsProvider needs the block-tag lookup from ModBlockTagsProvider.
         generator.addProvider(event.includeServer(),
                 new ModItemTagsProvider(packOutput, event.getLookupProvider(), blockTags.contentsGetter()));
 

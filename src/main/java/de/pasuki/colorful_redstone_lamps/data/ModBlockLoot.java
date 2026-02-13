@@ -4,14 +4,8 @@ import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.data.loot.BlockLootSubProvider;
 
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Supplier;
@@ -26,7 +20,7 @@ public class ModBlockLoot extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        // jede Lampe dropt sich selbst
+        // Every lamp block drops itself.
         streamAllBlocks().forEach(b -> dropSelf(b));
     }
 

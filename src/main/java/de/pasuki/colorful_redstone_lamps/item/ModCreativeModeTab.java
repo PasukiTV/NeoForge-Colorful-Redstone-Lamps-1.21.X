@@ -21,12 +21,12 @@ public class ModCreativeModeTab {
                     .title(Component.translatable("itemGroup.colorful_redstone_lamps"))
                     .icon(() -> new ItemStack(ModBlocks.LAMPS.get(DyeColor.RED).get()))
                     .displayItems((params, output) -> {
-                        // zuerst normale Lampen
+                        // Show normal lamps first
                         for (DyeColor color : DyeColor.values()) {
                             var sup = ModBlocks.LAMPS.get(color);
                             if (sup != null) output.accept(sup.get());
                         }
-                        // dann invertierte
+                        // Then show inverted lamps
                         for (DyeColor color : DyeColor.values()) {
                             var sup = ModBlocks.INVERTED_LAMPS.get(color);
                             if (sup != null) output.accept(sup.get());
@@ -34,7 +34,7 @@ public class ModCreativeModeTab {
                     })
                     .build());
 
-    // <— diese Methode fehlt oft, wird aber in deiner Hauptklasse aufgerufen
+    // Called from the main mod class to register the creative tab.
     public static void register(IEventBus modEventBus) {
         TABS.register(modEventBus);
     }

@@ -27,7 +27,7 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(ColorfulRedstoneLamps.MOD_ID);
 
-    // ================= helpers =================
+    // Helper methods used by block registration.
     private static ToIntFunction<BlockState> litBlockEmission(int value) {
         return state -> state.getValue(RedstoneLampBlock.LIT) ? value : 0;
     }
@@ -47,8 +47,7 @@ public class ModBlocks {
                 .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0);
     }
 
-    // ================= maps =================
-    // Normale & invertierte Lampen – beide per Schleife gefüllt
+    // Lamp registries for all dye colors (normal and inverted variants).
     public static final Map<DyeColor, DeferredBlock<Block>> LAMPS =
             new EnumMap<>(DyeColor.class);
     public static final Map<DyeColor, DeferredBlock<Block>> INVERTED_LAMPS =
@@ -56,13 +55,13 @@ public class ModBlocks {
 
     static {
         for (DyeColor color : DyeColor.values()) {
-            // normal
+            // Normal lamp variant
             String baseName = color.getName() + "_redstone_lamp";
             DeferredBlock<Block> lamp = registerBlock(baseName,
                     () -> new RedstoneLampBlock(baseProps(color)));
             LAMPS.put(color, lamp);
 
-            // inverted
+            // Inverted lamp variant
             String invName = color.getName() + "_redstone_lamp_inverted";
             DeferredBlock<Block> invLamp = registerBlock(invName,
                     () -> new InvertedRedstoneLampBlock(invertedProps(color)));
@@ -70,7 +69,7 @@ public class ModBlocks {
         }
     }
 
-    // ================= register helpers =================
+    // Registration helpers.
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
