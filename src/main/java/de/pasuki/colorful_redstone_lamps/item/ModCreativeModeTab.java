@@ -21,8 +21,6 @@ public class ModCreativeModeTab {
                     .title(Component.translatable("itemGroup.colorful_redstone_lamps"))
                     .icon(() -> new ItemStack(ModBlocks.LAMPS.get(DyeColor.RED).get()))
                     .displayItems((params, output) -> {
-                        output.accept(ModItems.WHITE_DYE_DUST.get());
-
                         // zuerst normale Lampen
                         for (DyeColor color : DyeColor.values()) {
                             var sup = ModBlocks.LAMPS.get(color);
