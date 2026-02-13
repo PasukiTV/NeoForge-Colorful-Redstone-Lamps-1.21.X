@@ -10,6 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
+@SuppressWarnings("unused") // Accessed by NeoForge event bus via annotation scanning.
 @EventBusSubscriber(modid = ColorfulRedstoneLamps.MOD_ID, value = Dist.CLIENT)
 public final class TooltipHandler {
     private static final Component NORMAL_LAMP_TOOLTIP = Component
