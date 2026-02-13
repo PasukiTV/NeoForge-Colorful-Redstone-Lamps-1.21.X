@@ -12,14 +12,14 @@ public class InvertedRedstoneLampBlock extends RedstoneLampBlock {
 
     public InvertedRedstoneLampBlock(Properties props) {
         super(props);
-        // Standard: invertiert = AN
+        // Default state is lit: inverted lamps are on without redstone power.
         this.registerDefaultState(this.stateDefinition.any().setValue(LIT, true));
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
         boolean hasSignal = ctx.getLevel().hasNeighborSignal(ctx.getClickedPos());
-        // Invertierte Logik: Signal -> AUS, kein Signal -> AN
+        // Inverted behavior: powered -> off, unpowered -> on.
         return this.defaultBlockState().setValue(LIT, !hasSignal);
     }
 
@@ -31,10 +31,9 @@ public class InvertedRedstoneLampBlock extends RedstoneLampBlock {
         boolean hasSignal = level.hasNeighborSignal(pos);
         boolean lit = state.getValue(LIT);
 
-        if (hasSignal && lit) {
-            level.setBlock(pos, state.setValue(LIT, false), 2);
-        } else if (!hasSignal && !lit) {
-            level.setBlock(pos, state.setValue(LIT, true), 2);
+        boolean targetLit = !hasSignal;
+        if (lit != targetLit) {
+            level.setBlock(pos, state.setValue(LIT, targetLit), 2);
         }
     }
 }

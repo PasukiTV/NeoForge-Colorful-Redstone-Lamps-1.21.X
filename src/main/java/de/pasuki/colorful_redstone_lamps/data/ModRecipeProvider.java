@@ -32,7 +32,7 @@ public class ModRecipeProvider extends RecipeProvider {
 
             Item dye = dyeFor(c);
 
-            // Normale Lampe
+            // Craft normal lamp from vanilla redstone lamp + matching dye
             ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, resultNormal, 1)
                     .requires(Items.REDSTONE_LAMP)
                     .requires(dye)
@@ -40,13 +40,13 @@ public class ModRecipeProvider extends RecipeProvider {
                     .unlockedBy("has_dye_" + c.getName(), has(dye))
                     .save(out, id("craft/" + base));
 
-            // Invertiert herstellen
+            // Convert normal lamp to inverted lamp
             ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, resultInverted, 1)
                     .requires(resultNormal)
                     .unlockedBy("has_" + base, has(resultNormal))
                     .save(out, id("invert/" + base + "_to_inverted"));
 
-            // Zurück wandeln
+            // Convert inverted lamp back to normal lamp
             ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, resultNormal, 1)
                     .requires(resultInverted)
                     .unlockedBy("has_" + base + "_inverted", has(resultInverted))

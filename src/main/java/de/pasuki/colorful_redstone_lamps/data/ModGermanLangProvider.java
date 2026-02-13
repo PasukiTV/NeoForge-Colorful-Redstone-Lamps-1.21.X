@@ -1,7 +1,6 @@
 package de.pasuki.colorful_redstone_lamps.data;
 
 import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLamps;
-import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.DyeColor;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -11,7 +10,7 @@ import java.util.Map;
 
 public class ModGermanLangProvider extends LanguageProvider {
 
-    // Adjektive stimmen mit Vanilla-Deutsch überein (Lampe = feminin → -e)
+    // Adjectives match vanilla German naming ("Lampe" is feminine).
     private static final Map<DyeColor, String> DE = new EnumMap<>(DyeColor.class);
     static {
         DE.put(DyeColor.WHITE,      "Weiße");
@@ -28,8 +27,8 @@ public class ModGermanLangProvider extends LanguageProvider {
         DE.put(DyeColor.LIGHT_BLUE, "Hellblaue");
         DE.put(DyeColor.BLUE,       "Blaue");
         DE.put(DyeColor.PURPLE,     "Violette");
-        DE.put(DyeColor.MAGENTA,    "Magenta");   // wie Vanilla: z. B. „Magenta Keramik“
-        DE.put(DyeColor.PINK,       "Rosa");      // wie Vanilla: z. B. „Rosa Keramik“
+        DE.put(DyeColor.MAGENTA,    "Magenta");   // Matches vanilla phrasing, e.g. "Magenta Keramik"
+        DE.put(DyeColor.PINK,       "Rosa");      // Matches vanilla phrasing, e.g. "Rosa Keramik"
     }
 
     public ModGermanLangProvider(PackOutput output) {
@@ -48,11 +47,11 @@ public class ModGermanLangProvider extends LanguageProvider {
             String adj = DE.get(c);
             if (adj == null) continue;
 
-            // normal
+            // Normal
             String keyNormal = "block." + ColorfulRedstoneLamps.MOD_ID + "." + c.getName() + "_redstone_lamp";
             add(keyNormal, adj + " Redstone-Lampe");
 
-            // inverted (Adjektiv bleibt vorne)
+            // Inverted (adjective remains before the noun in German).
             String keyInv = "block." + ColorfulRedstoneLamps.MOD_ID + "." + c.getName() + "_redstone_lamp_inverted";
             add(keyInv, adj + " invertierte Redstone-Lampe");
         }

@@ -2,13 +2,10 @@ package de.pasuki.colorful_redstone_lamps.data;
 
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
 import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
-import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -22,11 +19,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         for (DyeColor c : DyeColor.values()) {
             String base = c.getName() + "_redstone_lamp";
 
-            // deine vorhandenen Texturen:
-            String texOn  = "block/" + base + "_on"; // vorhanden
-            String texOff = "block/" + base;         // vorhanden (ohne _off)
+            // Texture layout used by this mod.
+            String texOn  = "block/" + base + "_on"; // existing
+            String texOff = "block/" + base;         // existing (without _off suffix)
 
-            // Modelle erzeugen, benannt mit _on/_off, aber verknüpft mit deinen Texturen
+            // Generate model files named *_on/*_off and map them to the textures above.
             var onModel  = models().cubeAll(base + "_on",  modLoc(texOn));
             var offModel = models().cubeAll(base + "_off", modLoc(texOff));
 
@@ -46,18 +43,4 @@ public class ModBlockStateProvider extends BlockStateProvider {
         }
     }
 
-
-    // -------- helpers --------
-    private static Block safeGet(Object maybeSupplier) {
-        try {
-            if (maybeSupplier instanceof java.util.function.Supplier<?> sup) {
-                Object v = sup.get();
-                return (v instanceof Block b) ? b : null;
-            }
-        } catch (Throwable ignored) {}
-        return null;
-    }
-
-    // Hinweis: modLoc(String) kommt aus BlockStateProvider – NICHT löschen/überschreiben!
-    // protected ResourceLocation modLoc(String path);
 }

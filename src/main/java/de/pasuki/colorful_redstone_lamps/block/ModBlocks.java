@@ -5,6 +5,7 @@ import de.pasuki.colorful_redstone_lamps.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
@@ -26,7 +27,7 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(ColorfulRedstoneLamps.MOD_ID);
 
-    // ================= helpers =================
+    // Helper methods used by block registration.
     private static ToIntFunction<BlockState> litBlockEmission(int value) {
         return state -> state.getValue(RedstoneLampBlock.LIT) ? value : 0;
     }
@@ -41,8 +42,12 @@ public class ModBlocks {
                 .isValidSpawn(ModBlocks::always);
     }
 
-    // ================= maps =================
-    // Normale & invertierte Lampen – beide per Schleife gefüllt
+    private static BlockBehaviour.Properties invertedProps(DyeColor color) {
+        return baseProps(color)
+                .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0);
+    }
+
+    // Lamp registries for all dye colors (normal and inverted variants).
     public static final Map<DyeColor, DeferredBlock<Block>> LAMPS =
             new EnumMap<>(DyeColor.class);
     public static final Map<DyeColor, DeferredBlock<Block>> INVERTED_LAMPS =
@@ -50,35 +55,28 @@ public class ModBlocks {
 
     static {
         for (DyeColor color : DyeColor.values()) {
-            // normal
+            // Normal lamp variant
             String baseName = color.getName() + "_redstone_lamp";
             DeferredBlock<Block> lamp = registerBlock(baseName,
                     () -> new RedstoneLampBlock(baseProps(color)));
             LAMPS.put(color, lamp);
 
-            // inverted
+            // Inverted lamp variant
             String invName = color.getName() + "_redstone_lamp_inverted";
             DeferredBlock<Block> invLamp = registerBlock(invName,
-                    () -> new InvertedRedstoneLampBlock(
-                            BlockBehaviour.Properties.of()
-                                    .mapColor(color.getMapColor())
-                                    .strength(0.3F)
-                                    .sound(SoundType.GLASS)
-                                    .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0)
-                                    .isValidSpawn(ModBlocks::always)
-                    ));
+                    () -> new InvertedRedstoneLampBlock(invertedProps(color)));
             INVERTED_LAMPS.put(color, invLamp);
         }
     }
 
-    // ================= register helpers =================
+    // Registration helpers.
     private static <T extends Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block) {
-        ModItems.ITEMS.register(name, () -> new net.minecraft.world.item.BlockItem(block.get(), new Item.Properties()));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static void register(IEventBus eventBus) {
