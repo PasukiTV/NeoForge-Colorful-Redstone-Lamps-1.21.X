@@ -1,8 +1,6 @@
 {
   "itemGroup.colorful_redstone_lamps": "Colorful Redstone Lamps",
-
   "creativetab.colorful_redstone_lamps": "Colorful Redstone Lamps",
-
   "block.colorful_redstone_lamps.white_redstone_lamp": "White Redstone Lamp",
   "block.colorful_redstone_lamps.light_gray_redstone_lamp": "Light Gray Redstone Lamp",
   "block.colorful_redstone_lamps.gray_redstone_lamp": "Gray Redstone Lamp",
@@ -19,7 +17,6 @@
   "block.colorful_redstone_lamps.purple_redstone_lamp": "Purple Redstone Lamp",
   "block.colorful_redstone_lamps.magenta_redstone_lamp": "Magenta Redstone Lamp",
   "block.colorful_redstone_lamps.pink_redstone_lamp": "Pink Redstone Lamp",
-
   "item.colorful_redstone_lamps.white_redstone_lamp": "White Redstone Lamp",
   "item.colorful_redstone_lamps.light_gray_redstone_lamp": "Light Gray Redstone Lamp",
   "item.colorful_redstone_lamps.gray_redstone_lamp": "Gray Redstone Lamp",
@@ -36,14 +33,43 @@
   "item.colorful_redstone_lamps.purple_redstone_lamp": "Purple Redstone Lamp",
   "item.colorful_redstone_lamps.magenta_redstone_lamp": "Magenta Redstone Lamp",
   "item.colorful_redstone_lamps.pink_redstone_lamp": "Pink Redstone Lamp",
-
-  
-  
   "colorful_redstone_lamps.configuration.title": "Colorful Redstone Lamps Configs",
   "colorful_redstone_lamps.configuration.section.colorful_redstone_lamps.common.toml": "Colorful Redstone Lamps Configs",
   "colorful_redstone_lamps.configuration.section.colorful_redstone_lamps.common.toml.title": "Colorful Redstone Lamps Configs",
   "colorful_redstone_lamps.configuration.items": "Item List",
   "colorful_redstone_lamps.configuration.logDirtBlock": "Log Dirt Block",
   "colorful_redstone_lamps.configuration.magicNumberIntroduction": "Magic Number Text",
-  "colorful_redstone_lamps.configuration.magicNumber": "Magic Number"
+  "colorful_redstone_lamps.configuration.magicNumber": "Magic Number",
+  "block.colorful_redstone_lamps.white_inverted_redstone_lamp": "Inverted White Redstone Lamp",
+  "item.colorful_redstone_lamps.white_inverted_redstone_lamp": "Inverted White Redstone Lamp",
+  "block.colorful_redstone_lamps.light_gray_inverted_redstone_lamp": "Inverted Light Gray Redstone Lamp",
+  "item.colorful_redstone_lamps.light_gray_inverted_redstone_lamp": "Inverted Light Gray Redstone Lamp",
+  "block.colorful_redstone_lamps.gray_inverted_redstone_lamp": "Inverted Gray Redstone Lamp",
+  "item.colorful_redstone_lamps.gray_inverted_redstone_lamp": "Inverted Gray Redstone Lamp",
+  "block.colorful_redstone_lamps.black_inverted_redstone_lamp": "Inverted Black Redstone Lamp",
+  "item.colorful_redstone_lamps.black_inverted_redstone_lamp": "Inverted Black Redstone Lamp",
+  "block.colorful_redstone_lamps.brown_inverted_redstone_lamp": "Inverted Brown Redstone Lamp",
+  "item.colorful_redstone_lamps.brown_inverted_redstone_lamp": "Inverted Brown Redstone Lamp",
+  "block.colorful_redstone_lamps.red_inverted_redstone_lamp": "Inverted Red Redstone Lamp",
+  "item.colorful_redstone_lamps.red_inverted_redstone_lamp": "Inverted Red Redstone Lamp",
+  "block.colorful_redstone_lamps.orange_inverted_redstone_lamp": "Inverted Orange Redstone Lamp",
+  "item.colorful_redstone_lamps.orange_inverted_redstone_lamp": "Inverted Orange Redstone Lamp",
+  "block.colorful_redstone_lamps.yellow_inverted_redstone_lamp": "Inverted Yellow Redstone Lamp",
+  "item.colorful_redstone_lamps.yellow_inverted_redstone_lamp": "Inverted Yellow Redstone Lamp",
+  "block.colorful_redstone_lamps.lime_inverted_redstone_lamp": "Inverted Lime Redstone Lamp",
+  "item.colorful_redstone_lamps.lime_inverted_redstone_lamp": "Inverted Lime Redstone Lamp",
+  "block.colorful_redstone_lamps.green_inverted_redstone_lamp": "Inverted Green Redstone Lamp",
+  "item.colorful_redstone_lamps.green_inverted_redstone_lamp": "Inverted Green Redstone Lamp",
+  "block.colorful_redstone_lamps.cyan_inverted_redstone_lamp": "Inverted Cyan Redstone Lamp",
+  "item.colorful_redstone_lamps.cyan_inverted_redstone_lamp": "Inverted Cyan Redstone Lamp",
+  "block.colorful_redstone_lamps.light_blue_inverted_redstone_lamp": "Inverted Light Blue Redstone Lamp",
+  "item.colorful_redstone_lamps.light_blue_inverted_redstone_lamp": "Inverted Light Blue Redstone Lamp",
+  "block.colorful_redstone_lamps.blue_inverted_redstone_lamp": "Inverted Blue Redstone Lamp",
+  "item.colorful_redstone_lamps.blue_inverted_redstone_lamp": "Inverted Blue Redstone Lamp",
+  "block.colorful_redstone_lamps.purple_inverted_redstone_lamp": "Inverted Purple Redstone Lamp",
+  "item.colorful_redstone_lamps.purple_inverted_redstone_lamp": "Inverted Purple Redstone Lamp",
+  "block.colorful_redstone_lamps.magenta_inverted_redstone_lamp": "Inverted Magenta Redstone Lamp",
+  "item.colorful_redstone_lamps.magenta_inverted_redstone_lamp": "Inverted Magenta Redstone Lamp",
+  "block.colorful_redstone_lamps.pink_inverted_redstone_lamp": "Inverted Pink Redstone Lamp",
+  "item.colorful_redstone_lamps.pink_inverted_redstone_lamp": "Inverted Pink Redstone Lamp"
 }

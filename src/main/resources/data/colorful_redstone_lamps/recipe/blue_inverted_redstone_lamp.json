@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "colorful_redstone_lamps:blue_redstone_lamp"
+    },
+    {
+      "item": "minecraft:redstone_torch"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "colorful_redstone_lamps:blue_inverted_redstone_lamp"
+  }
+}

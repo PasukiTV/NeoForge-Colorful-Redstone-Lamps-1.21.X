@@ -4,13 +4,13 @@ import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLamps;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-public class ModItems {
+public final class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ColorfulRedstoneLamps.MOD_ID);
 
-    //public static final DeferredItem<Item> WHITE_DYE_DUST = ITEMS.register("white_dye_dust",
-    //        () -> new Item(new Item.Properties()));
+    private ModItems() {
+    }
 
-    public static void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
 }
