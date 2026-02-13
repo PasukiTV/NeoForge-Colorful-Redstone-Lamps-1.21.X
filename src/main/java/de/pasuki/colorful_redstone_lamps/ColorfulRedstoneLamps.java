@@ -1,6 +1,7 @@
 package de.pasuki.colorful_redstone_lamps;
 
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
+import de.pasuki.colorful_redstone_lamps.datagen.ModDataGenerators;
 import de.pasuki.colorful_redstone_lamps.item.ModCreativeModeTab;
 import de.pasuki.colorful_redstone_lamps.item.ModItems;
 import net.neoforged.bus.api.IEventBus;
@@ -14,6 +15,7 @@ public class ColorfulRedstoneLamps {
 
     public ColorfulRedstoneLamps(IEventBus modEventBus, ModContainer modContainer) {
         // Register all mod content in a single, predictable place.
+        modEventBus.addListener(ModDataGenerators::gatherData);
         ModCreativeModeTab.register(modEventBus);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
