@@ -10,7 +10,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
-@EventBusSubscriber(modid = ColorfulRedstoneLamps.MOD_ID, value = Dist.CLIENT)
+@EventBusSubscriber(modid = ColorfulRedstoneLamps.MOD_ID, value = Dist.CLIENT, bus = EventBusSubscriber.Bus.GAME)
 public class TooltipHandler {
     private TooltipHandler() {
     }
