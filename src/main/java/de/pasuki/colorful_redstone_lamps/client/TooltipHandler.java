@@ -1,17 +1,11 @@
 package de.pasuki.colorful_redstone_lamps.client;
 
-import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLamps;
 import de.pasuki.colorful_redstone_lamps.data.ModItemTagsProvider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
-@SuppressWarnings("unused") // Accessed by NeoForge event bus via annotation scanning.
-@EventBusSubscriber(modid = ColorfulRedstoneLamps.MOD_ID, value = Dist.CLIENT)
 public final class TooltipHandler {
     private static final Component NORMAL_LAMP_TOOLTIP = Component
             .translatable("tooltip.colorful_redstone_lamps.lamp.normal")
@@ -23,7 +17,6 @@ public final class TooltipHandler {
     private TooltipHandler() {
     }
 
-    @SubscribeEvent
     public static void onTooltip(ItemTooltipEvent event) {
         ItemStack stack = event.getItemStack();
         if (stack.isEmpty()) {
