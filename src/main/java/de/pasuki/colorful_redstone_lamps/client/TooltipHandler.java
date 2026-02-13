@@ -1,8 +1,9 @@
 package de.pasuki.colorful_redstone_lamps.client;
 
-import de.pasuki.colorful_redstone_lamps.data.ModItemTagsProvider;
+import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
@@ -23,10 +24,19 @@ public final class TooltipHandler {
             return;
         }
 
-        if (stack.is(ModItemTagsProvider.LAMPS)) {
+        Item item = stack.getItem();
+        if (isNormalLamp(item)) {
             event.getToolTip().add(NORMAL_LAMP_TOOLTIP);
-        } else if (stack.is(ModItemTagsProvider.INVERTED_LAMPS)) {
+        } else if (isInvertedLamp(item)) {
             event.getToolTip().add(INVERTED_LAMP_TOOLTIP);
         }
+    }
+
+    private static boolean isNormalLamp(Item item) {
+        return ModBlocks.LAMPS.values().stream().anyMatch(block -> block.get().asItem() == item);
+    }
+
+    private static boolean isInvertedLamp(Item item) {
+        return ModBlocks.INVERTED_LAMPS.values().stream().anyMatch(block -> block.get().asItem() == item);
     }
 }
