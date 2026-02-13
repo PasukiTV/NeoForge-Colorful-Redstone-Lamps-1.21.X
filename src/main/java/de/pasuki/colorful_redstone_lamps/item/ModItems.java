@@ -15,8 +15,7 @@ import java.util.function.Supplier;
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ColorfulRedstoneLamps.MOD_ID);
 
-
-    public static void register(IEventBus eventBus){
+    public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
 
@@ -29,5 +28,5 @@ public class ModItems {
                     new BlockItem(ModBlocks.INVERTED_LAMPS.get(color).get(), new Item.Properties())));
         }
     }
-
 }
+
