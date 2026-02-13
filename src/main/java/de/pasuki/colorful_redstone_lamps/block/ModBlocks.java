@@ -41,6 +41,11 @@ public class ModBlocks {
                 .isValidSpawn(ModBlocks::always);
     }
 
+    private static BlockBehaviour.Properties invertedProps(DyeColor color) {
+        return baseProps(color)
+                .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0);
+    }
+
     // ================= maps =================
     // Normale & invertierte Lampen – beide per Schleife gefüllt
     public static final Map<DyeColor, DeferredBlock<Block>> LAMPS =
@@ -59,14 +64,7 @@ public class ModBlocks {
             // inverted
             String invName = color.getName() + "_redstone_lamp_inverted";
             DeferredBlock<Block> invLamp = registerBlock(invName,
-                    () -> new InvertedRedstoneLampBlock(
-                            BlockBehaviour.Properties.of()
-                                    .mapColor(color.getMapColor())
-                                    .strength(0.3F)
-                                    .sound(SoundType.GLASS)
-                                    .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0)
-                                    .isValidSpawn(ModBlocks::always)
-                    ));
+                    () -> new InvertedRedstoneLampBlock(invertedProps(color)));
             INVERTED_LAMPS.put(color, invLamp);
         }
     }
