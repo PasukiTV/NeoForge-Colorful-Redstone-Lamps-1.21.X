@@ -59,7 +59,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .partialState().with(net.minecraft.world.level.block.RedstoneLampBlock.LIT, true)
                 .modelForState().modelFile(onModel).addModel();
 
-        simpleBlockItem(lamp.get(), offModel);
     }
 
     private void registerInvertedLamp(DeferredBlock<Block> lamp, String baseColor) {
@@ -73,6 +72,5 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .partialState().with(net.minecraft.world.level.block.RedstoneLampBlock.LIT, true)
                 .modelForState().modelFile(onModel).addModel();
 
-        simpleBlockItem(lamp.get(), offModel);
     }
 }
