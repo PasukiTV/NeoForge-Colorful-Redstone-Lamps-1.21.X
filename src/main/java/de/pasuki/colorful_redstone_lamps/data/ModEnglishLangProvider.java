@@ -1,7 +1,6 @@
 package de.pasuki.colorful_redstone_lamps.data;
 
 import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLamps;
-import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.DyeColor;
 import net.neoforged.neoforge.common.data.LanguageProvider;
