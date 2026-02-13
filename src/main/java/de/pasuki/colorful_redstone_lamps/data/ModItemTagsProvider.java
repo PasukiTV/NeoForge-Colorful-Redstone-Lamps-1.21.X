@@ -1,9 +1,11 @@
 package de.pasuki.colorful_redstone_lamps.data;
 
+import de.pasuki.colorful_redstone_lamps.ColorfulRedstoneLamps;
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;          // <-- Mojang!
+import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -16,16 +18,15 @@ import java.util.concurrent.CompletableFuture;
 public class ModItemTagsProvider extends ItemTagsProvider {
 
     public static final TagKey<Item> ANY_LAMP =
-            TagKey.create(net.minecraft.core.registries.Registries.ITEM,
-                    ResourceLocation.fromNamespaceAndPath("colorful_redstone_lamps", "any_lamp"));
+            TagKey.create(Registries.ITEM,
+                    ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID, "any_lamp"));
     public static final TagKey<Item> LAMPS =
-            TagKey.create(net.minecraft.core.registries.Registries.ITEM,
-                    ResourceLocation.fromNamespaceAndPath("colorful_redstone_lamps", "redstone_lamps"));
+            TagKey.create(Registries.ITEM,
+                    ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID, "redstone_lamps"));
     public static final TagKey<Item> INVERTED_LAMPS =
-            TagKey.create(net.minecraft.core.registries.Registries.ITEM,
-                    ResourceLocation.fromNamespaceAndPath("colorful_redstone_lamps", "inverted_redstone_lamps"));
+            TagKey.create(Registries.ITEM,
+                    ResourceLocation.fromNamespaceAndPath(ColorfulRedstoneLamps.MOD_ID, "inverted_redstone_lamps"));
 
-    // Mojang-Konstruktor: (PackOutput, CompletableFuture<HolderLookup.Provider>, CompletableFuture<TagLookup<Block>>)
     public ModItemTagsProvider(PackOutput output,
                                CompletableFuture<HolderLookup.Provider> lookupProvider,
                                CompletableFuture<TagsProvider.TagLookup<Block>> blockTagLookup) {
