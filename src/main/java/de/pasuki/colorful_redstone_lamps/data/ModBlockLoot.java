@@ -6,7 +6,6 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.registries.DeferredBlock;
 
 public class ModBlockLoot extends BlockLootSubProvider {
     public ModBlockLoot(HolderLookup.Provider lookup) {
@@ -15,11 +14,13 @@ public class ModBlockLoot extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        getKnownBlocks().forEach(this::dropSelf);
+        for (Block block : getKnownBlocks()) {
+            dropSelf(block);
+        }
     }
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(DeferredBlock::get).toList();
+        return ModBlocks.BLOCKS.getEntries().stream().map(deferredBlock -> deferredBlock.get()).toList();
     }
 }

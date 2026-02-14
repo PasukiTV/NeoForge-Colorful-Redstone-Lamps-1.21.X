@@ -12,6 +12,6 @@ import net.neoforged.neoforge.common.NeoForge;
 public class ColorfulRedstoneLampsClient {
     public ColorfulRedstoneLampsClient(ModContainer container) {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
-        NeoForge.EVENT_BUS.addListener(TooltipHandler::onTooltip);
+        NeoForge.EVENT_BUS.addListener(event -> TooltipHandler.onTooltip(event));
     }
 }
