@@ -4,17 +4,9 @@ import de.pasuki.colorful_redstone_lamps.data.ModItemTagsProvider;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
-import net.neoforged.api.distmarker.Dist;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
-@Mod(
-        value = "colorful_redstone_lamps",
-        dist = {Dist.CLIENT}
-)
-public class TooltipHandler {
-    @SubscribeEvent
+public final class TooltipHandler {
     public static void onTooltip(ItemTooltipEvent e) {
         ItemStack stack = e.getItemStack();
         if (!stack.isEmpty()) {

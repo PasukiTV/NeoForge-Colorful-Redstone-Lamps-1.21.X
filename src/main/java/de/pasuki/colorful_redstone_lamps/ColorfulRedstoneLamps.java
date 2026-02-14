@@ -2,6 +2,7 @@ package de.pasuki.colorful_redstone_lamps;
 
 import com.mojang.logging.LogUtils;
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
+import de.pasuki.colorful_redstone_lamps.data.ModDataGenerators;
 import de.pasuki.colorful_redstone_lamps.item.ModCreativeModeTab;
 import de.pasuki.colorful_redstone_lamps.item.ModItems;
 import net.neoforged.bus.api.IEventBus;
@@ -27,6 +28,8 @@ public class ColorfulRedstoneLamps {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(ModDataGenerators::gatherClientData);
+        modEventBus.addListener(ModDataGenerators::gatherServerData);
         modContainer.registerConfig(Type.COMMON, Config.SPEC);
     }
 
