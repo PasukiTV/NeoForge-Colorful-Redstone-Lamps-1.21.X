@@ -31,5 +31,7 @@
   "block.colorful_redstone_lamps.white_redstone_lamp_inverted": "Inverted White Redstone Lamp",
   "block.colorful_redstone_lamps.yellow_redstone_lamp": "Yellow Redstone Lamp",
   "block.colorful_redstone_lamps.yellow_redstone_lamp_inverted": "Inverted Yellow Redstone Lamp",
-  "itemGroup.colorful_redstone_lamps": "Colorful Redstone Lamps"
+  "itemGroup.colorful_redstone_lamps": "Colorful Redstone Lamps",
+  "tooltip.colorful_redstone_lamps.lamp.inverted": "Turns off with a redstone signal.",
+  "tooltip.colorful_redstone_lamps.lamp.normal": "Turns on with a redstone signal."
 }
