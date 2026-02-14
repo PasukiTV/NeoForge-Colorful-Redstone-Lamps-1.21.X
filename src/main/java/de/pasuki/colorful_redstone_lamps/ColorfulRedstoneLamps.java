@@ -30,7 +30,6 @@ public class ColorfulRedstoneLamps {
         modEventBus.addListener(this::addCreative);
         modEventBus.addListener(ModDataGenerators::gatherClientData);
         modEventBus.addListener(ModDataGenerators::gatherServerData);
-        modContainer.registerConfig(Type.COMMON, Config.SPEC);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {
