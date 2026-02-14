@@ -13,24 +13,20 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 )
 public final class ModDataGenerators {
     @SubscribeEvent
-    public static void gatherClientData(GatherDataEvent.Client event) {
+    public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         PackOutput out = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
-        generator.addProvider(true, new ModRecipeProvider.Runner(out, lookup));
-        generator.addProvider(true, new ModModelProvider(out));
-        generator.addProvider(true, new ModEnglishLangProvider(out));
-        generator.addProvider(true, new ModGermanLangProvider(out));
-    }
+        boolean includeClient = event.includeClient();
+        boolean includeServer = event.includeServer();
 
-    @SubscribeEvent
-    public static void gatherServerData(GatherDataEvent.Server event) {
-        DataGenerator generator = event.getGenerator();
-        PackOutput out = generator.getPackOutput();
-        CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
-        generator.addProvider(true, new ModLootTableProvider(out, lookup));
+        generator.addProvider(includeServer, new ModRecipeProvider.Runner(out, lookup));
+        generator.addProvider(includeClient, new ModModelProvider(out));
+        generator.addProvider(includeClient, new ModEnglishLangProvider(out));
+        generator.addProvider(includeClient, new ModGermanLangProvider(out));
+        generator.addProvider(includeServer, new ModLootTableProvider(out, lookup));
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(out, lookup);
-        generator.addProvider(true, blockTags);
-        generator.addProvider(true, new ModItemTagsProvider(out, lookup));
+        generator.addProvider(includeServer, blockTags);
+        generator.addProvider(includeServer, new ModItemTagsProvider(out, lookup));
     }
 }
