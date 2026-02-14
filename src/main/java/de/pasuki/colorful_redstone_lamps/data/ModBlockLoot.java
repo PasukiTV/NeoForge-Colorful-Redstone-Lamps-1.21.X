@@ -26,7 +26,8 @@ public class ModBlockLoot extends BlockLootSubProvider {
     @Nonnull
     protected Iterable<Block> getKnownBlocks() {
         List<Block> blocks = new ArrayList<>();
-        ModBlocks.BLOCKS.getEntries().forEach(deferredBlock -> blocks.add(deferredBlock.get()));
+        ModBlocks.LAMPS.values().forEach(deferredBlock -> blocks.add(deferredBlock.get()));
+        ModBlocks.INVERTED_LAMPS.values().forEach(deferredBlock -> blocks.add(deferredBlock.get()));
         return blocks;
     }
 }
