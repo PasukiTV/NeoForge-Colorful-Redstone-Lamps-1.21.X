@@ -10,10 +10,12 @@ public final class ModDataGenerators {
     public static void gatherClientData(GatherDataEvent.Client event) {
         DataGenerator generator = event.getGenerator();
         PackOutput out = generator.getPackOutput();
+        CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
 
         generator.addProvider(true, new ModModelProvider(out));
         generator.addProvider(true, new ModEnglishLangProvider(out));
         generator.addProvider(true, new ModGermanLangProvider(out));
+        addServerProviders(generator, out, lookup);
     }
 
     public static void gatherServerData(GatherDataEvent.Server event) {
@@ -21,6 +23,10 @@ public final class ModDataGenerators {
         PackOutput out = generator.getPackOutput();
         CompletableFuture<HolderLookup.Provider> lookup = event.getLookupProvider();
 
+        addServerProviders(generator, out, lookup);
+    }
+
+    private static void addServerProviders(DataGenerator generator, PackOutput out, CompletableFuture<HolderLookup.Provider> lookup) {
         generator.addProvider(true, new ModRecipeProvider.Runner(out, lookup));
         generator.addProvider(true, new ModLootTableProvider(out, lookup));
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(out, lookup);
