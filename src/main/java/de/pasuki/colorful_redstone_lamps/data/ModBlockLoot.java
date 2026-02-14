@@ -1,6 +1,8 @@
 package de.pasuki.colorful_redstone_lamps.data;
 
 import de.pasuki.colorful_redstone_lamps.block.ModBlocks;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -21,6 +23,8 @@ public class ModBlockLoot extends BlockLootSubProvider {
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(deferredBlock -> deferredBlock.get()).toList();
+        List<Block> blocks = new ArrayList<>();
+        ModBlocks.BLOCKS.getEntries().forEach(deferredBlock -> blocks.add((Block) deferredBlock.get()));
+        return blocks;
     }
 }
