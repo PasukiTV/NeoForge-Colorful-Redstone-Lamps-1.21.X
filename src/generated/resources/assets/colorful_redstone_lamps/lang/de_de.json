@@ -31,6 +31,10 @@
   "block.colorful_redstone_lamps.white_redstone_lamp_inverted": "Weiße invertierte Redstone-Lampe",
   "block.colorful_redstone_lamps.yellow_redstone_lamp": "Gelbe Redstone-Lampe",
   "block.colorful_redstone_lamps.yellow_redstone_lamp_inverted": "Gelbe invertierte Redstone-Lampe",
+  "colorful_redstone_lamps.welcome.body1": "Hast du Ideen zur Verbesserung?",
+  "colorful_redstone_lamps.welcome.body2": "Ich freue mich über dein Feedback!",
+  "colorful_redstone_lamps.welcome.body3": "Feedback auf CurseForge",
+  "colorful_redstone_lamps.welcome.title": "Colorful Redstone Lamps!",
   "itemGroup.colorful_redstone_lamps": "Bunte Redstone-Lampen",
   "tooltip.colorful_redstone_lamps.lamp.inverted": "Schaltet sich bei Redstone-Signal aus.",
   "tooltip.colorful_redstone_lamps.lamp.normal": "Schaltet sich bei Redstone-Signal ein."

@@ -41,6 +41,10 @@ public class ModGermanLangProvider extends LanguageProvider {
         add("itemGroup.colorful_redstone_lamps", "Bunte Redstone-Lampen");
         add("tooltip.colorful_redstone_lamps.lamp.normal",   "Schaltet sich bei Redstone-Signal ein.");
         add("tooltip.colorful_redstone_lamps.lamp.inverted", "Schaltet sich bei Redstone-Signal aus.");
+        add("colorful_redstone_lamps.welcome.title", "Colorful Redstone Lamps!");
+        add("colorful_redstone_lamps.welcome.body1", "Hast du Ideen zur Verbesserung?");
+        add("colorful_redstone_lamps.welcome.body2", "Ich freue mich über dein Feedback!");
+        add("colorful_redstone_lamps.welcome.body3", "Feedback auf CurseForge");
 
         // Blocks
         for (DyeColor c : DyeColor.values()) {

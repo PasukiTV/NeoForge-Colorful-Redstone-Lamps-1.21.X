@@ -31,6 +31,10 @@
   "block.colorful_redstone_lamps.white_redstone_lamp_inverted": "Inverted White Redstone Lamp",
   "block.colorful_redstone_lamps.yellow_redstone_lamp": "Yellow Redstone Lamp",
   "block.colorful_redstone_lamps.yellow_redstone_lamp_inverted": "Inverted Yellow Redstone Lamp",
+  "colorful_redstone_lamps.welcome.body1": "Have ideas to improve the mod?",
+  "colorful_redstone_lamps.welcome.body2": "I'd love to hear your feedback!",
+  "colorful_redstone_lamps.welcome.body3": "Leave feedback on CurseForge",
+  "colorful_redstone_lamps.welcome.title": "Colorful Redstone Lamps!",
   "itemGroup.colorful_redstone_lamps": "Colorful Redstone Lamps",
   "tooltip.colorful_redstone_lamps.lamp.inverted": "Turns off with a redstone signal.",
   "tooltip.colorful_redstone_lamps.lamp.normal": "Turns on with a redstone signal."
