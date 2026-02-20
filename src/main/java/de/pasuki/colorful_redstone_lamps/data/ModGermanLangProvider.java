@@ -39,6 +39,7 @@ public class ModGermanLangProvider extends LanguageProvider {
     protected void addTranslations() {
         // Creative tab
         add("itemGroup.colorful_redstone_lamps", "Bunte Redstone-Lampen");
+        add("itemGroup.colorful_redstone_lamps_inverted", "Bunte Redstone-Lampen Invertiert");
         add("tooltip.colorful_redstone_lamps.lamp.normal",   "Schaltet sich bei Redstone-Signal ein.");
         add("tooltip.colorful_redstone_lamps.lamp.inverted", "Schaltet sich bei Redstone-Signal aus.");
         add("colorful_redstone_lamps.welcome.title", "Colorful Redstone Lamps!");

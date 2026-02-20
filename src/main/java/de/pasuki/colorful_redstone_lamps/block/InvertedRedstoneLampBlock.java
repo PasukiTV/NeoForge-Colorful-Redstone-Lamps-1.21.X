@@ -1,10 +1,14 @@
 package de.pasuki.colorful_redstone_lamps.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RedstoneLampBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 
 public class InvertedRedstoneLampBlock extends RedstoneLampBlock {
@@ -28,12 +32,26 @@ public class InvertedRedstoneLampBlock extends RedstoneLampBlock {
                                 net.minecraft.world.level.block.Block block, BlockPos fromPos, boolean isMoving) {
         if (level.isClientSide) return;
 
+        boolean lit       = state.getValue(BlockStateProperties.LIT);
         boolean hasSignal = level.hasNeighborSignal(pos);
-        boolean lit = state.getValue(LIT);
+        // Inverted logic: Lamp on, if Signal True.
+        if (lit == hasSignal) {
+            if (lit) {
+                // if Lamp lit, turn delayed off
+                level.scheduleTick(pos, this, 4);
+            } else {
+                // if Lamp not lit, turn on
+                level.setBlock(pos, state.setValue(BlockStateProperties.LIT, Boolean.TRUE), Block.UPDATE_CLIENTS);
+            }
+        }
+    }
 
-        boolean targetLit = !hasSignal;
-        if (lit != targetLit) {
-            level.setBlock(pos, state.setValue(LIT, targetLit), 2);
+    //this Function is used by public void neighborChanged to turn Lamp delayed off but inverted
+    @Override
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        // Turn Lamp only off, if Lamp is on and has signal
+        if (state.getValue(BlockStateProperties.LIT) && level.hasNeighborSignal(pos)) {
+            level.setBlock(pos, state.setValue(BlockStateProperties.LIT, Boolean.FALSE), Block.UPDATE_CLIENTS);
         }
     }
 }

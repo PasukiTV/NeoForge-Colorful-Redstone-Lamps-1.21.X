@@ -43,8 +43,5 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             inverted.add(ModBlocks.INVERTED_LAMPS.get(c).get());
         }
         this.tag(ANY_LAMP).addTag(LAMPS).addTag(INVERTED_LAMPS);
-
-        // Optional: add all lamp blocks to vanilla pickaxe mineable tag.
-        // this.tag(net.minecraft.tags.BlockTags.MINEABLE_WITH_PICKAXE).addTag(ANY_LAMP);
     }
 }

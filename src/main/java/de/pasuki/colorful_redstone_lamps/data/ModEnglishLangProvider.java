@@ -38,6 +38,7 @@ public class ModEnglishLangProvider extends LanguageProvider {
     protected void addTranslations() {
         // Creative tab
         add("itemGroup.colorful_redstone_lamps", "Colorful Redstone Lamps");
+        add("itemGroup.colorful_redstone_lamps_inverted", "Colorful Redstone Lamps Inverted");
         add("tooltip.colorful_redstone_lamps.lamp.normal",   "Turns on with a redstone signal.");
         add("tooltip.colorful_redstone_lamps.lamp.inverted", "Turns off with a redstone signal.");
         add("colorful_redstone_lamps.welcome.title", "Colorful Redstone Lamps!");
